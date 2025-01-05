@@ -23,9 +23,16 @@ export const projects = [
   {
     title: "sharity",
     description:
-      "A proof-of-concept that uses AI to identify donation items from medias and matches them with local charities. We placed 1st in the 2024 LaunchHacks hackathon.",
+      "A proof-of-concept that uses AI to identify donation items from medias and matches them with local charities. We won 1st in the 2024 LaunchHacks hackathon.",
     media: "/images/sharity.png",
     url: "https://sharityy.vercel.app/",
+  },
+  {
+    title: "UT Registration Plus",
+    description:
+      "A Chrome extension that streamlines the UT Austin class registration process. I help with designing and implementing the UI. Has over 40,000+ downloads!",
+    media: "/images/ut-registration-plus.png",
+    url: "https://github.com/Longhorn-Developers/UT-Registration-Plus",
   },
   {
     title: "ecoNest",

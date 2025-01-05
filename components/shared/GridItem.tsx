@@ -49,11 +49,14 @@ const GridItem = ({ title, description, media, iconColor, url }: Props) => {
 
       <div>
         <Link
-          className="flex items-center gap-1 text-sm font-bold text-accent hover:underline"
+          className="flex items-center gap-1 hover:underline"
           href={url}
           target="_blank"
         >
-          {urlText} <ArrowUpRight size={14} />
+          <span className="line-clamp-1 break-all text-sm font-bold text-accent">
+            {urlText}
+          </span>
+          <ArrowUpRight size={14} />
         </Link>
       </div>
     </div>
