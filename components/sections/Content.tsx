@@ -1,7 +1,7 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import React, { useState } from "react";
+import { cn, easterEgg } from "@/lib/utils";
+import React, { useEffect, useState } from "react";
 import GridItem from "../shared/GridItem";
 import { techStack } from "@/data/tech-stack";
 import { projects } from "@/data/projects";
@@ -10,6 +10,10 @@ const Content = () => {
   const [activeTab, setActiveTab] = useState<"projects" | "tech stack">(
     "projects",
   );
+
+  useEffect(() => {
+    easterEgg();
+  }, []);
 
   return (
     <div className="flex flex-col">
