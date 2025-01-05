@@ -21,7 +21,8 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://ethanlanting.dev/",
     title: "Ethan Lanting | Web Developer",
-    description: "A self-taught web developer from Texas.",
+    description:
+      "Hi, I'm Ethan—a developer, designer, and creator. I build websites and applications that are fast, accessible, and responsive.",
     siteName: "Ethan Lanting",
     images: [
       {
