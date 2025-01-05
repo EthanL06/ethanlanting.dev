@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     url: "https://ethanlanting.dev/",
     title: "Ethan Lanting | Web Developer",
     description: "A self-taught web developer from Texas.",
+    siteName: "Ethan Lanting",
     images: [
       {
         url: "https://ethanlanting.dev/opengraph-image.png",

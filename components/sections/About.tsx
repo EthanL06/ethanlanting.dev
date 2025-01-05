@@ -10,9 +10,9 @@ const About = () => {
     >
       <div className="flex flex-col gap-1">
         <div>
-          <p className="pointer-events-none inline-block animate-wave select-none text-3xl">
+          <button className="inline-block animate-wave select-none text-3xl">
             👋
-          </p>
+          </button>
         </div>
         <h1>
           Hi, I&apos;m <span className="font-semibold text-white">Ethan</span>—a

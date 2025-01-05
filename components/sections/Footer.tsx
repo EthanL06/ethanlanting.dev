@@ -3,6 +3,7 @@
 import { MapPin } from "lucide-react";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
+import { ConfettiButton } from "../shared/ConfettiComponent";
 
 const Footer = () => {
   const [currentTime, setCurrentTime] = useState("");
@@ -42,7 +43,9 @@ const Footer = () => {
           </Link>
         </div>
 
-        <button className="block animate-wave text-2xl">🤘</button>
+        <ConfettiButton className="block animate-wave text-2xl">
+          🤘
+        </ConfettiButton>
 
         <div className="flex grow basis-0 flex-wrap items-center justify-end gap-6">
           <p className="flex items-center gap-1 text-sm font-semibold text-accent">
@@ -70,7 +73,9 @@ const MobileFooter = ({
 }) => {
   return (
     <footer className="flex flex-col items-center justify-between gap-6 py-6 sm:hidden">
-      <button className="block animate-wave text-2xl">🤘</button>
+      <ConfettiButton className="block animate-wave text-2xl">
+        🤘
+      </ConfettiButton>
 
       <div className="flex w-full flex-wrap items-center justify-center gap-2 min-[420px]:justify-between">
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
