@@ -2,25 +2,17 @@ import Link from "next/link";
 import React, { Suspense } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { IconType } from "@icons-pack/react-simple-icons";
-import { Video } from "./Video";
+import Image from "next/image";
 
 type Props = {
   title: string;
   description: string;
   media: IconType | React.ElementType | string;
-  isVideo?: boolean;
   iconColor?: string;
   url: string;
 };
 
-const GridItem = ({
-  title,
-  description,
-  media,
-  isVideo = false,
-  iconColor,
-  url,
-}: Props) => {
+const GridItem = ({ title, description, media, iconColor, url }: Props) => {
   const urlText = url
     .replace(/(^\w+:|^)\/\//, "")
     .replace(/\/$/, "")
@@ -28,13 +20,16 @@ const GridItem = ({
 
   return (
     <div className="flex flex-col gap-3">
-      {isVideo && typeof media === "string" ? (
+      {typeof media === "string" ? (
         <Suspense
           fallback={<div className="h-16 w-16 animate-pulse bg-white/10" />}
         >
-          <Video
-            className="aspect-video w-full overflow-clip rounded-lg border border-white/10 object-cover object-top hover:cursor-pointer"
+          <Image
+            className="object-fit aspect-video w-full overflow-clip rounded-lg border border-white/10 object-center hover:cursor-pointer"
+            width={480}
+            height={270}
             src={media}
+            alt={title}
           />
         </Suspense>
       ) : (
