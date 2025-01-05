@@ -2,13 +2,12 @@ import Link from "next/link";
 import React, { Suspense } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { IconType } from "@icons-pack/react-simple-icons";
-import Video from "next-video";
-import { Asset } from "next-video/dist/assets.js";
+import { Video } from "./Video";
 
 type Props = {
   title: string;
   description: string;
-  media: IconType | React.ElementType | Asset;
+  media: IconType | React.ElementType | string;
   isVideo?: boolean;
   iconColor?: string;
   url: string;
@@ -29,18 +28,13 @@ const GridItem = ({
 
   return (
     <div className="flex flex-col gap-3">
-      {isVideo ? (
+      {isVideo && typeof media === "string" ? (
         <Suspense
           fallback={<div className="h-16 w-16 animate-pulse bg-white/10" />}
         >
           <Video
-            src={media as Asset}
-            autoPlay
-            loop
-            muted
-            playsInline
-            controls={false}
             className="aspect-video w-full overflow-clip rounded-lg border border-white/10 object-cover object-top hover:cursor-pointer"
+            src={media}
           />
         </Suspense>
       ) : (
