@@ -22,10 +22,36 @@ const About = () => {
 
       <p>
         I&apos;m currently a{" "}
-        <span className="font-semibold text-white">Web Developer</span> @ UT
-        Austin, a{" "}
-        <span className="font-semibold text-white">Software Developer</span> @
-        Longhorn Developers, and building{" "}
+        <span className="font-semibold text-white">Web Developer</span> @{" "}
+        <Link
+          className="transition-colors hover:text-accent hover:underline"
+          href={"https://mediaengagement.org/"}
+          target="_blank"
+        >
+          UT Austin
+        </Link>
+        , a <span className="font-semibold text-white">Software Developer</span>{" "}
+        @{" "}
+        <Link
+          href={"https://github.com/Longhorn-Developers"}
+          className="transition-colors hover:text-accent hover:underline"
+          target="_blank"
+        >
+          Longhorn Developers
+        </Link>
+        , an incoming{" "}
+        <span className="font-semibold text-white">
+          Software Engineering Intern
+        </span>{" "}
+        @{" "}
+        <Link
+          href={"https://www.planview.com/"}
+          className="transition-colors hover:text-accent hover:underline"
+          target="_blank"
+        >
+          Planview
+        </Link>
+        , and building{" "}
         <Link
           href={"https://www.instagram.com/adventurefy.app/"}
           className="font-semibold text-accent hover:underline"
