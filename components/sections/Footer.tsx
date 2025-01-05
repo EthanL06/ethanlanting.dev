@@ -1,6 +1,7 @@
 "use client";
 
 import { MapPin } from "lucide-react";
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
 const Footer = () => {
@@ -27,10 +28,18 @@ const Footer = () => {
   return (
     <>
       <footer className="hidden items-center justify-between gap-6 py-6 sm:flex sm:flex-row">
-        <div className="block grow basis-0">
+        <div className="relative block grow basis-0">
           <p className="text-sm font-medium">
             Ethan Lanting &copy; {new Date().getFullYear()}
           </p>
+
+          <Link
+            href="https://v1.ethanlanting.dev"
+            className="absolute left-0 transform whitespace-nowrap text-[.625rem] transition-colors hover:text-white"
+            target="_blank"
+          >
+            view old site
+          </Link>
         </div>
 
         <button className="block animate-wave text-2xl">🤘</button>
@@ -75,9 +84,18 @@ const MobileFooter = ({
           )}
         </div>
 
-        <p className="text-sm font-medium">
-          Ethan Lanting &copy; {new Date().getFullYear()}
-        </p>
+        <div className="relative">
+          <p className="text-sm font-medium">
+            Ethan Lanting &copy; {new Date().getFullYear()}
+          </p>
+          <Link
+            href="https://v1.ethanlanting.dev"
+            className="absolute right-1/2 translate-x-1/2 transform whitespace-nowrap text-[.625rem] transition-colors hover:text-white min-[405px]:right-0 min-[405px]:translate-x-0"
+            target="_blank"
+          >
+            view old site
+          </Link>
+        </div>
       </div>
     </footer>
   );

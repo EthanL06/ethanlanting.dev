@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { Suspense } from "react";
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight } from "lucide-react";
 import { IconType } from "@icons-pack/react-simple-icons";
 import Video from "next-video";
 import { Asset } from "next-video/dist/assets.js";
@@ -14,7 +14,14 @@ type Props = {
   url: string;
 };
 
-const GridItem = ({ title, description, media, isVideo = false, iconColor, url }: Props) => {
+const GridItem = ({
+  title,
+  description,
+  media,
+  isVideo = false,
+  iconColor,
+  url,
+}: Props) => {
   const urlText = url
     .replace(/(^\w+:|^)\/\//, "")
     .replace(/\/$/, "")
@@ -38,7 +45,7 @@ const GridItem = ({ title, description, media, isVideo = false, iconColor, url }
         </Suspense>
       ) : (
         <div className="flex items-center">
-          {React.createElement(media, {
+          {React.createElement(media as IconType | React.ElementType, {
             size: 64,
             color: iconColor,
             className: "mb-2",

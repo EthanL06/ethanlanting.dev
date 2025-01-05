@@ -48,7 +48,7 @@ const About = () => {
           href={"/#contact"}
           className="flex items-center gap-1 font-semibold text-accent hover:underline"
         >
-          Contact me <ArrowUpRight size={14} />
+          Contact Me <ArrowUpRight size={14} />
         </Link>
 
         <Link

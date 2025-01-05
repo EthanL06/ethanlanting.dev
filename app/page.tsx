@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <div
       id="home"
-      className="relative flex min-h-screen w-full flex-col items-center gap-y-16 px-5 pt-8 sm:px-16"
+      className="relative flex min-h-screen w-full flex-col items-center gap-y-16 overflow-clip px-5 pt-8 sm:px-16"
     >
       <Blob />
       <Navbar />
