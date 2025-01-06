@@ -14,12 +14,13 @@ export const projects = [
     url: "https://pinnacles.app",
   },
   {
-    title: "Help Me Bevo",
+    title: "UT Registration Plus",
     description:
-      "A Chrome extension that plays UT Austin's iconic 3rd down animation every time you submit an assignment. I designed and built the UI. Has over 1,000+ downloads!",
-    media: "/images/help-me-bevo.png",
-    url: "https://github.com/arjohnsonn/Help-Me-Bevo",
+      "A Chrome extension that streamlines the UT Austin class registration process. I help with designing and implementing the UI. Has over 40,000+ downloads!",
+    media: "/images/ut-registration-plus.png",
+    url: "https://github.com/Longhorn-Developers/UT-Registration-Plus",
   },
+
   {
     title: "sharity",
     description:
@@ -28,18 +29,18 @@ export const projects = [
     url: "https://sharityy.vercel.app/",
   },
   {
-    title: "UT Registration Plus",
+    title: "Help Me Bevo",
     description:
-      "A Chrome extension that streamlines the UT Austin class registration process. I help with designing and implementing the UI. Has over 40,000+ downloads!",
-    media: "/images/ut-registration-plus.png",
-    url: "https://github.com/Longhorn-Developers/UT-Registration-Plus",
+      "A Chrome extension that plays UT Austin's iconic 3rd down animation every time you submit an assignment. I designed and built the UI. Has over 1,000+ downloads!",
+    media: "/images/help-me-bevo.png",
+    url: "https://github.com/arjohnsonn/Help-Me-Bevo",
   },
   {
-    title: "ecoNest",
+    title: "HealthGPT",
     description:
-      "A platform that promotes sustainable living for eco-conscious individuals. I won 1st in Texas and 6th nationally for the 2024 Webmasters TSA competition.",
-    media: "/images/econest.png",
-    url: "https://eco-nest.vercel.app/",
+      "An AI patient diagonsis system that uses GPT-3 to generate a diagnosis based on patient symptoms. I won 5th in the 2023 Computer Science Youth of America.",
+    media: "/images/healthgpt.png",
+    url: "https://healthgpt-iota.vercel.app/",
   },
   {
     title: "Galaxy Adventures",
@@ -48,18 +49,19 @@ export const projects = [
     media: "/images/galaxy-adventures.png",
     url: "https://galaxy-adventures.vercel.app/",
   },
+
+  {
+    title: "ecoNest",
+    description:
+      "A platform that promotes sustainable living for eco-conscious individuals. I won 1st in Texas and 6th nationally for the 2024 Webmasters TSA competition.",
+    media: "/images/econest.png",
+    url: "https://eco-nest.vercel.app/",
+  },
   {
     title: "Nuttlet",
     description:
       "A flashcard study tool that helps you memorize anything for free. I built it for my computer science teacher, Mr, Nutt!",
     media: "/images/nuttlet.png",
     url: "https://nuttlet.vercel.app/",
-  },
-  {
-    title: "HealthGPT",
-    description:
-      "An AI patient diagonsis system that uses GPT-3 to generate a diagnosis based on patient symptoms. I won 5th in the 2023 Computer Science Youth of America.",
-    media: "/images/healthgpt.png",
-    url: "https://healthgpt-iota.vercel.app/",
   },
 ] as Project[];

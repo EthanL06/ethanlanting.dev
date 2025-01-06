@@ -19,14 +19,7 @@ const GridItem = ({ title, description, media, iconColor, url }: Props) => {
     .replace(/^www\./, "");
 
   return (
-    <div
-      onClick={() => {
-        if (typeof media === "string") {
-          window.open(url, "_blank");
-        }
-      }}
-      className="group flex flex-col gap-3 hover:cursor-pointer"
-    >
+    <div className="group/item flex flex-col gap-3">
       {typeof media === "string" ? (
         <Suspense
           fallback={<div className="h-16 w-16 animate-pulse bg-white/10" />}
@@ -37,7 +30,7 @@ const GridItem = ({ title, description, media, iconColor, url }: Props) => {
             target="_blank"
           >
             <Image
-              className="ease-in-out-quint aspect-video w-full overflow-clip object-cover object-center transition-all duration-500 group-hover:scale-110 group-hover:opacity-80"
+              className="aspect-video w-full overflow-clip object-cover object-center transition-all duration-500 ease-in-out group-hover/item:scale-110 group-hover/item:opacity-80"
               width={480}
               height={270}
               src={media}
@@ -50,29 +43,41 @@ const GridItem = ({ title, description, media, iconColor, url }: Props) => {
           {React.createElement(media as IconType | React.ElementType, {
             size: 64,
             color: iconColor,
-            className: "mb-2",
+            className:
+              "mb-2 group-hover:opacity-80 transition-opacity ease-in-out duration-500",
           })}
         </div>
       )}
 
-      <h3 className="text-base font-extrabold text-white">{title}</h3>
+      <h3 className="text-base font-extrabold text-white transition-colors hover:text-white/80">
+        <Link href={url} target="_blank">
+          {title}
+        </Link>
+      </h3>
       <div className="grow text-pretty text-sm font-medium leading-relaxed">
         {description}{" "}
       </div>
 
-      <div>
+      <div className="flex items-end justify-between gap-6">
         <Link
           className="group flex items-center gap-1"
           href={url}
           target="_blank"
         >
-          <span className="line-clamp-1 break-all text-sm font-bold text-accent transition-colors group-hover:text-accent/80">
+          <span className="line-clamp-1 break-all text-sm font-bold text-accent transition-colors hover:text-accent/80">
             {urlText}
           </span>
           <ArrowUpRight
-            className="transform transition-transform duration-500 ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            className="shrink-0 transform transition-transform duration-500 ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
             size={14}
           />
+        </Link>
+
+        <Link
+          className="w-fit whitespace-nowrap text-xs font-semibold transition-all duration-300 ease-in-out hover:font-bold hover:text-white/80"
+          href=""
+        >
+          Learn More
         </Link>
       </div>
     </div>

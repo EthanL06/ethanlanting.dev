@@ -76,7 +76,7 @@ const Contact = () => {
               </label>
               <input
                 required
-                className="w-full rounded-full border border-white/10 bg-background px-3 py-2 text-xs text-white focus:border-accent focus:outline-none"
+                className="w-full rounded-full border border-white/10 bg-background px-3 py-2 text-xs text-white transition-colors ease-in-out hover:border-accent/50 focus:border-accent focus:outline-none"
                 id="name"
               />
             </div>
@@ -91,7 +91,7 @@ const Contact = () => {
               <input
                 required
                 type="email"
-                className="w-full rounded-full border border-white/10 bg-background px-3 py-2 text-xs text-white focus:border-accent focus:outline-none"
+                className="w-full rounded-full border border-white/10 bg-background px-3 py-2 text-xs text-white transition-colors ease-in-out hover:border-accent/50 focus:border-accent focus:outline-none"
                 id="email"
               />
             </div>
@@ -103,7 +103,7 @@ const Contact = () => {
             </label>
             <textarea
               required
-              className="min-h-28 w-full rounded-2xl border border-white/10 bg-background px-3 py-2 text-xs text-white focus:border-accent focus:outline-none"
+              className="min-h-28 w-full rounded-2xl border border-white/10 bg-background px-3 py-2 text-xs text-white transition-colors ease-in-out hover:border-accent/50 focus:border-accent focus:outline-none"
               id="message"
             />
           </div>

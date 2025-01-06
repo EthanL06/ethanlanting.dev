@@ -41,7 +41,7 @@ const About = () => {
         I&apos;m currently a{" "}
         <span className="font-semibold text-white">Web Developer</span> @{" "}
         <Link
-          className="transition-colors hover:text-accent"
+          className="transition-all hover:font-semibold hover:text-accent"
           href={"https://mediaengagement.org/"}
           target="_blank"
         >
@@ -51,7 +51,7 @@ const About = () => {
         @{" "}
         <Link
           href={"https://github.com/Longhorn-Developers"}
-          className="transition-colors hover:text-accent"
+          className="transition-all hover:font-semibold hover:text-accent"
           target="_blank"
         >
           Longhorn Developers
@@ -63,7 +63,7 @@ const About = () => {
         @{" "}
         <Link
           href={"https://www.planview.com/"}
-          className="transition-colors hover:text-accent hover:underline"
+          className="transition-all hover:font-semibold hover:text-accent"
           target="_blank"
         >
           Planview
