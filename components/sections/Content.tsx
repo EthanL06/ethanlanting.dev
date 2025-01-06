@@ -22,7 +22,9 @@ const Content = () => {
           onClick={() => setActiveTab("projects")}
           className={cn(
             "text-sm font-semibold",
-            activeTab === "projects" && "!font-extrabold text-white",
+            activeTab === "projects"
+              ? "!font-extrabold text-white"
+              : "transition-colors hover:text-white/80",
           )}
         >
           Projects
@@ -30,8 +32,10 @@ const Content = () => {
         <button
           onClick={() => setActiveTab("tech stack")}
           className={cn(
-            "text-sm font-semibold",
-            activeTab === "tech stack" && "!font-extrabold text-white",
+            "relative text-sm font-semibold",
+            activeTab === "tech stack"
+              ? "!font-extrabold text-white"
+              : "transition-colors hover:text-white/80",
           )}
         >
           Tech Stack

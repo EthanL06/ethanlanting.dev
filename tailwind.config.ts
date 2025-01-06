@@ -58,6 +58,9 @@ export default {
         blob: "blob 10s infinite",
         "blob-color": "blob-color 10s infinite",
       },
+      transitionTimingFunction: {
+        "in-out-quint": "cubic-bezier(0.83, 0, 0.17, 1)",
+      },
     },
   },
   plugins: [],

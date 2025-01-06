@@ -19,14 +19,25 @@ const GridItem = ({ title, description, media, iconColor, url }: Props) => {
     .replace(/^www\./, "");
 
   return (
-    <div className="flex flex-col gap-3">
+    <div
+      onClick={() => {
+        if (typeof media === "string") {
+          window.open(url, "_blank");
+        }
+      }}
+      className="group flex flex-col gap-3 hover:cursor-pointer"
+    >
       {typeof media === "string" ? (
         <Suspense
           fallback={<div className="h-16 w-16 animate-pulse bg-white/10" />}
         >
-          <Link href={url} target="_blank">
+          <Link
+            className="overflow-clip rounded-lg border border-white/10 hover:cursor-pointer"
+            href={url}
+            target="_blank"
+          >
             <Image
-              className="object-fit aspect-video w-full overflow-clip rounded-lg border border-white/10 object-center hover:cursor-pointer"
+              className="ease-in-out-quint aspect-video w-full overflow-clip object-cover object-center transition-all duration-500 group-hover:scale-110 group-hover:opacity-80"
               width={480}
               height={270}
               src={media}
@@ -51,14 +62,17 @@ const GridItem = ({ title, description, media, iconColor, url }: Props) => {
 
       <div>
         <Link
-          className="flex items-center gap-1 hover:underline"
+          className="group flex items-center gap-1"
           href={url}
           target="_blank"
         >
-          <span className="line-clamp-1 break-all text-sm font-bold text-accent">
+          <span className="line-clamp-1 break-all text-sm font-bold text-accent transition-colors group-hover:text-accent/80">
             {urlText}
           </span>
-          <ArrowUpRight size={14} />
+          <ArrowUpRight
+            className="transform transition-transform duration-500 ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            size={14}
+          />
         </Link>
       </div>
     </div>

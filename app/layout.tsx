@@ -13,23 +13,23 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Ethan Lanting | Web Developer",
+  title: "Ethan Lanting",
   description:
     "Hi, I'm Ethan—a developer, designer, and creator. I build websites and applications that are fast, accessible, and responsive.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://ethanlanting.dev/",
-    title: "Ethan Lanting | Web Developer",
+    title: "Ethan Lanting",
     description:
       "Hi, I'm Ethan—a developer, designer, and creator. I build websites and applications that are fast, accessible, and responsive.",
     siteName: "Ethan Lanting",
     images: [
       {
         url: "https://ethanlanting.dev/opengraph-image.png",
-        width: 800,
-        height: 400,
-        alt: "Ethan Lanting | Web Developer",
+        width: 1200,
+        height: 630,
+        alt: "Ethan Lanting",
       },
     ],
   },

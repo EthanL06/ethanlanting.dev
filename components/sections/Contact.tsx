@@ -47,16 +47,16 @@ const Contact = () => {
     <section id="contact" className="border-y border-white/10 py-12">
       <form
         onSubmit={handleSubmit}
-        className="mx-auto flex w-full max-w-[26.875rem] flex-col items-center gap-6"
+        className="mx-auto flex w-full max-w-[32.875rem] flex-col items-center gap-6"
       >
-        <div className="flex flex-col items-center gap-2">
+        <div className="flex w-full max-w-[26.875rem] flex-col items-center gap-2">
           <h2 className="text-center text-lg font-extrabold text-white">
             Get in touch with me
           </h2>
           <p className="text-balance text-center text-sm font-medium">
             Feel free to send me a message using the form or email me at{" "}
             <Link
-              className="font-bold leading-relaxed text-accent hover:underline"
+              className="font-bold leading-relaxed text-accent transition-colors hover:text-accent/80"
               href="mailto:ethanclanting@gmail.com"
               target="_blank"
             >
@@ -65,38 +65,48 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="w-full space-y-1">
-          <label htmlFor="name" className="text-xs font-semibold text-white">
-            Name <span className="text-red-700">*</span>
-          </label>
-          <input
-            required
-            className="w-full rounded-full border border-white/10 bg-background px-3 py-2 text-xs text-white focus:border-accent focus:outline-none"
-            id="name"
-          />
-        </div>
+        <div className="flex w-full flex-col gap-6">
+          <div className="flex w-full flex-col gap-6 sm:flex-row">
+            <div className="w-full space-y-1">
+              <label
+                htmlFor="name"
+                className="text-xs font-semibold text-white"
+              >
+                Name <span className="text-red-700">*</span>
+              </label>
+              <input
+                required
+                className="w-full rounded-full border border-white/10 bg-background px-3 py-2 text-xs text-white focus:border-accent focus:outline-none"
+                id="name"
+              />
+            </div>
 
-        <div className="w-full space-y-1">
-          <label htmlFor="name" className="text-xs font-semibold text-white">
-            Email <span className="text-red-700">*</span>
-          </label>
-          <input
-            required
-            type="email"
-            className="w-full rounded-full border border-white/10 bg-background px-3 py-2 text-xs text-white focus:border-accent focus:outline-none"
-            id="email"
-          />
-        </div>
+            <div className="w-full space-y-1">
+              <label
+                htmlFor="name"
+                className="text-xs font-semibold text-white"
+              >
+                Email <span className="text-red-700">*</span>
+              </label>
+              <input
+                required
+                type="email"
+                className="w-full rounded-full border border-white/10 bg-background px-3 py-2 text-xs text-white focus:border-accent focus:outline-none"
+                id="email"
+              />
+            </div>
+          </div>
 
-        <div className="w-full space-y-1">
-          <label htmlFor="name" className="text-xs font-semibold text-white">
-            Message <span className="text-red-700">*</span>
-          </label>
-          <textarea
-            required
-            className="min-h-28 w-full rounded-2xl border border-white/10 bg-background px-3 py-2 text-xs text-white focus:border-accent focus:outline-none"
-            id="message"
-          />
+          <div className="w-full space-y-1">
+            <label htmlFor="name" className="text-xs font-semibold text-white">
+              Message <span className="text-red-700">*</span>
+            </label>
+            <textarea
+              required
+              className="min-h-28 w-full rounded-2xl border border-white/10 bg-background px-3 py-2 text-xs text-white focus:border-accent focus:outline-none"
+              id="message"
+            />
+          </div>
         </div>
 
         <div className="flex w-full justify-end">

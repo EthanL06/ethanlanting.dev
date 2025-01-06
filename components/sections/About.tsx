@@ -41,7 +41,7 @@ const About = () => {
         I&apos;m currently a{" "}
         <span className="font-semibold text-white">Web Developer</span> @{" "}
         <Link
-          className="transition-colors hover:text-accent hover:underline"
+          className="transition-colors hover:text-accent"
           href={"https://mediaengagement.org/"}
           target="_blank"
         >
@@ -51,7 +51,7 @@ const About = () => {
         @{" "}
         <Link
           href={"https://github.com/Longhorn-Developers"}
-          className="transition-colors hover:text-accent hover:underline"
+          className="transition-colors hover:text-accent"
           target="_blank"
         >
           Longhorn Developers
@@ -71,7 +71,7 @@ const About = () => {
         , and building{" "}
         <Link
           href={"https://www.instagram.com/adventurefy.app/"}
-          className="font-semibold text-accent hover:underline"
+          className="font-semibold text-accent transition-colors hover:text-accent/80"
           target="_blank"
         >
           adventurefy.app
@@ -89,14 +89,14 @@ const About = () => {
       <div className="flex items-center gap-4">
         <Link
           href={"/#contact"}
-          className="flex items-center gap-1 font-semibold text-accent hover:underline"
+          className="flex items-center gap-1 font-semibold text-accent transition-colors hover:text-accent/80"
         >
           Contact Me <ArrowUpRight size={14} />
         </Link>
 
         <Link
           href={"/files/resume.pdf"}
-          className="flex items-center gap-1 font-semibold text-white hover:underline"
+          className="flex items-center gap-1 font-semibold text-white transition-colors hover:text-white/80"
         >
           View Resume <ArrowUpRight size={14} />
         </Link>
