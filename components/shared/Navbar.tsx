@@ -23,8 +23,8 @@ const Navbar = () => {
         </div>
       </div>
 
-      <nav className="fixed top-8 z-10 hidden items-center justify-center sm:flex">
-        <div className="bg-background/75 flex items-center gap-8 rounded-full border border-white/10 px-5 py-3 backdrop-blur-lg backdrop-filter">
+      <nav className="fixed top-8 z-50 hidden items-center justify-center sm:flex">
+        <div className="flex items-center gap-8 rounded-full border border-white/10 bg-background/75 px-5 py-3 backdrop-blur-lg backdrop-filter">
           {navLinks.map((link) => (
             <Link
               className="text-sm font-medium transition-colors hover:text-white"

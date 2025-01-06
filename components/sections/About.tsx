@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import { ConfettiButton } from "../shared/ConfettiComponent";
 
 const About = () => {
   return (
@@ -9,11 +10,27 @@ const About = () => {
       className="flex w-full max-w-[31.25rem] flex-col gap-6 font-medium"
     >
       <div className="flex flex-col gap-1">
-        <div>
-          <button className="inline-block animate-wave select-none text-3xl">
-            👋
-          </button>
-        </div>
+        <ConfettiButton
+          options={{
+            spread: 360,
+            ticks: 50,
+            gravity: 0.7,
+            decay: 0.94,
+            startVelocity: 15,
+            particleCount: 50,
+            scalar: 0.8,
+            shapes: ["circle", "square"],
+            colors: ["#FF5733", "#33FF57", "#3357FF", "#FF33A1"],
+            origin: {
+              x: 0.5,
+              y: 0.5,
+            },
+            zIndex: 10,
+          }}
+          className="w-fit transition-transform duration-300 ease-in-out hover:scale-125 active:scale-90"
+        >
+          <p className="inline-block animate-wave select-none text-3xl">👋</p>
+        </ConfettiButton>
         <h1>
           Hi, I&apos;m <span className="font-semibold text-white">Ethan</span>—a
           developer, designer, and creator.

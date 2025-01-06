@@ -37,7 +37,6 @@ const Footer = () => {
           <Link
             href="https://v1.ethanlanting.dev"
             className="absolute left-0 transform whitespace-nowrap text-[.625rem] transition-colors hover:text-white"
-            target="_blank"
           >
             view old site
           </Link>
@@ -48,13 +47,11 @@ const Footer = () => {
         </ConfettiButton>
 
         <div className="flex grow basis-0 flex-wrap items-center justify-end gap-6">
-          <p className="flex items-center gap-1 text-sm font-semibold text-accent">
+          <p className="flex items-center gap-1 text-sm font-semibold text-white">
             <MapPin size={14} /> Austin, TX
           </p>
           {isMounted && (
-            <p className="text-sm font-semibold text-white">
-              {currentTime} CST
-            </p>
+            <p className="text-sm font-semibold">{currentTime} CST</p>
           )}
         </div>
       </footer>
@@ -79,11 +76,11 @@ const MobileFooter = ({
 
       <div className="flex w-full flex-wrap items-center justify-center gap-2 min-[420px]:justify-between">
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
-          <p className="flex items-center gap-1 text-sm font-semibold text-accent">
+          <p className="flex items-center gap-1 text-sm font-semibold text-white">
             <MapPin size={14} /> Austin, TX
           </p>
           {isMounted && (
-            <p className="w-[7.5rem] whitespace-nowrap text-center text-sm font-semibold text-white">
+            <p className="w-[7.5rem] whitespace-nowrap text-center text-sm font-semibold">
               {currentTime} CST
             </p>
           )}
@@ -96,7 +93,6 @@ const MobileFooter = ({
           <Link
             href="https://v1.ethanlanting.dev"
             className="absolute right-1/2 translate-x-1/2 transform whitespace-nowrap text-[.625rem] transition-colors hover:text-white min-[405px]:right-0 min-[405px]:translate-x-0"
-            target="_blank"
           >
             view old site
           </Link>
