@@ -24,13 +24,15 @@ const GridItem = ({ title, description, media, iconColor, url }: Props) => {
         <Suspense
           fallback={<div className="h-16 w-16 animate-pulse bg-white/10" />}
         >
-          <Image
-            className="object-fit aspect-video w-full overflow-clip rounded-lg border border-white/10 object-center hover:cursor-pointer"
-            width={480}
-            height={270}
-            src={media}
-            alt={title}
-          />
+          <Link href={url} target="_blank">
+            <Image
+              className="object-fit aspect-video w-full overflow-clip rounded-lg border border-white/10 object-center hover:cursor-pointer"
+              width={480}
+              height={270}
+              src={media}
+              alt={title}
+            />
+          </Link>
         </Suspense>
       ) : (
         <div className="flex items-center">
