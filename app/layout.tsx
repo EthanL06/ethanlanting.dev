@@ -3,7 +3,6 @@ import { Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 
 import "./globals.css";
-import "./locomotive-scroll.css";
 
 import { TailwindIndicator } from "@/components/shared/TailwindIndicator";
 

@@ -5,7 +5,10 @@
 @layer base {
   html,
   body {
-    @apply bg-background leading-relaxed tracking-tight text-[#9C9C9C];
+    @apply bg-background text-[#9C9C9C];
     scroll-behavior: smooth;
+  }
+  * {
+    @apply leading-relaxed !tracking-tight;
   }
 }

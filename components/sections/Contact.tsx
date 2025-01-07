@@ -83,7 +83,7 @@ const Contact = () => {
 
             <div className="w-full space-y-1">
               <label
-                htmlFor="name"
+                htmlFor="email"
                 className="text-xs font-semibold text-white"
               >
                 Email <span className="text-red-700">*</span>
@@ -98,7 +98,10 @@ const Contact = () => {
           </div>
 
           <div className="w-full space-y-1">
-            <label htmlFor="name" className="text-xs font-semibold text-white">
+            <label
+              htmlFor="message"
+              className="text-xs font-semibold text-white"
+            >
               Message <span className="text-red-700">*</span>
             </label>
             <textarea
@@ -113,7 +116,7 @@ const Contact = () => {
           <button
             type="submit"
             disabled={submitDisabled}
-            className="flex items-center gap-1 rounded-full bg-white px-3.5 py-2 text-xs font-semibold text-background transition-colors hover:bg-white/75 disabled:cursor-not-allowed disabled:bg-white/70"
+            className="flex items-center gap-1 rounded-full bg-white px-3.5 py-2 text-xs font-semibold text-background transition-colors duration-500 ease-in-out hover:bg-white/75 disabled:cursor-not-allowed disabled:bg-white/70"
           >
             {submitDisabled ? (
               <>

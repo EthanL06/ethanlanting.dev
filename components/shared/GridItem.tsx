@@ -6,13 +6,21 @@ import Image from "next/image";
 
 type Props = {
   title: string;
+  slug?: string;
   description: string;
   media: IconType | React.ElementType | string;
   iconColor?: string;
   url: string;
 };
 
-const GridItem = ({ title, description, media, iconColor, url }: Props) => {
+const GridItem = ({
+  title,
+  slug,
+  description,
+  media,
+  iconColor,
+  url,
+}: Props) => {
   const urlText = url
     .replace(/(^\w+:|^)\/\//, "")
     .replace(/\/$/, "")
@@ -26,8 +34,7 @@ const GridItem = ({ title, description, media, iconColor, url }: Props) => {
         >
           <Link
             className="overflow-clip rounded-lg border border-white/10 hover:cursor-pointer"
-            href={url}
-            target="_blank"
+            href={`/projects/${slug}`}
           >
             <Image
               className="aspect-video w-full overflow-clip object-cover object-center transition-all duration-500 ease-in-out group-hover/item:scale-110 group-hover/item:opacity-80"
@@ -50,9 +57,7 @@ const GridItem = ({ title, description, media, iconColor, url }: Props) => {
       )}
 
       <h3 className="text-base font-extrabold text-white transition-colors hover:text-white/80">
-        <Link href={url} target="_blank">
-          {title}
-        </Link>
+        <Link href={`/projects/${slug}`}>{title}</Link>
       </h3>
       <div className="grow text-pretty text-sm font-medium leading-relaxed">
         {description}{" "}
@@ -73,12 +78,14 @@ const GridItem = ({ title, description, media, iconColor, url }: Props) => {
           />
         </Link>
 
-        <Link
-          className="w-fit whitespace-nowrap text-xs font-semibold transition-all duration-300 ease-in-out hover:font-bold hover:text-white/80"
-          href=""
-        >
-          Learn More
-        </Link>
+        {typeof media === "string" && (
+          <Link
+            className="w-fit whitespace-nowrap text-xs font-semibold transition-all duration-300 ease-in-out hover:text-white/80"
+            href={`/projects/${slug}`}
+          >
+            Learn More
+          </Link>
+        )}
       </div>
     </div>
   );

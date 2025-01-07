@@ -1,9 +1,13 @@
+import { cn } from "@/lib/utils";
 import React from "react";
 
-const Blob = () => {
+const Blob = ({ className }: { className?: string }) => {
   return (
     <svg
-      className="pointer-events-none absolute -left-32 -top-32 size-[500px] -translate-y-1/2 translate-x-1/2 transform animate-blob select-none rounded-full bg-white/5 blur-3xl"
+      className={cn(
+        "pointer-events-none absolute -left-32 -top-32 size-[500px] -translate-y-1/2 translate-x-1/2 transform animate-blob select-none rounded-full bg-white/5 blur-3xl",
+        className,
+      )}
       viewBox="0 0 200 200"
       xmlns="http://www.w3.org/2000/svg"
     >
