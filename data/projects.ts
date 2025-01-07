@@ -35,7 +35,7 @@ export const projects = [
     title: "UT Registration Plus",
     slug: "ut-registration-plus",
     description:
-      "A Chrome extension that streamlines the UT Austin class registration process. I help with designing and implementing the UI. Has over 40,000+ downloads!",
+      "A Chrome extension that streamlines the UT Austin class registration process. I help with designing and implementing the UI. Has over 60,000+ downloads!",
     media: "/images/ut-registration-plus.png",
     url: "https://github.com/Longhorn-Developers/UT-Registration-Plus",
     techStack: ["React", "TypeScript", "UnoCSS", "Storybook", "Figma"],
