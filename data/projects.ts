@@ -10,6 +10,30 @@ export interface Project {
 
 export const projects = [
   {
+    title: "UT Dining",
+    slug: "ut-dining",
+    description:
+      "A mobile app that tracks UT Austin real-time dining hall menus, nutrition info, and hours. Has over 100+ daily users with 5-star reviews on the App Store!",
+    media: "/images/ut-dining.png",
+    url: "https://apps.apple.com/us/app/ut-dining/id6743042002",
+    repo: "https://github.com/EthanL06/UT-Dining",
+    techStack: [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "NativeWind",
+      "Zustand",
+      "Supabase",
+      "Puppeteer",
+      "SQLite",
+      "RNMMKV",
+      "Drizzle ORM",
+      "Render",
+      "GitHub Actions",
+      "Husky",
+    ],
+  },
+  {
     title: "pinnacles.",
     slug: "pinnacles",
     description:
@@ -40,7 +64,6 @@ export const projects = [
     url: "https://github.com/Longhorn-Developers/UT-Registration-Plus",
     techStack: ["React", "TypeScript", "UnoCSS", "Storybook", "Figma"],
   },
-
   {
     title: "sharity",
     slug: "sharity",
@@ -132,6 +155,24 @@ export const projects = [
       "Firebase",
     ],
   },
+  // {
+  //   title: "say.so (work in progress)",
+  //   slug: "say-so",
+  //   description:
+  //     "A productivity tool that creates your daily to-do list with just your voice. Simply speak about your day and the tool will generate a list of daily tasks and events for you!",
+  //   media: "/images/say-so.png",
+  //   url: "",
+  //   techStack: [
+  //     "Next.js",
+  //     "TypeScript",
+  //     "Tailwind CSS",
+  //     "Supabase",
+  //     "OpenAI",
+  //     "Zustand",
+  //     "shadcn/ui",
+  //     "Framer Motion",
+  //   ],
+  // },
 ] as Project[];
 
 export const getProjectBySlug = (slug: string) => {
