@@ -25,17 +25,19 @@ const ProjectItem = (project: Project) => {
       </div>
 
       <div className="flex items-center justify-end gap-4">
-        <Link
-          className="group text-sm font-medium text-accent transition-colors duration-300 ease-in-out hover:text-accent/80"
-          href={project.url}
-          target="_blank"
-        >
-          Open Project{" "}
-          <ArrowUpRight
-            className="inline-block shrink-0 transform transition-transform duration-300 ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-            size={14}
-          />
-        </Link>
+        {project.url && (
+          <Link
+            className="group text-sm font-medium text-accent transition-colors duration-300 ease-in-out hover:text-accent/80"
+            href={project.url}
+            target="_blank"
+          >
+            Open Project{" "}
+            <ArrowUpRight
+              className="inline-block shrink-0 transform transition-transform duration-300 ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              size={14}
+            />
+          </Link>
+        )}
 
         {project.repo && (
           <Link
