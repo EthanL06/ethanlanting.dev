@@ -41,7 +41,7 @@ const About = () => {
         I&apos;m currently a{" "}
         <span className="font-semibold text-white">Web Developer</span> @{" "}
         <Link
-          className="transition-all hover:font-semibold hover:text-accent"
+          className="relative transition-colors duration-300 after:absolute after:bottom-0 after:right-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:text-white hover:after:left-0 hover:after:w-full"
           href={"https://mediaengagement.org/"}
           target="_blank"
         >
@@ -51,7 +51,7 @@ const About = () => {
         @{" "}
         <Link
           href={"https://github.com/Longhorn-Developers"}
-          className="transition-all hover:font-semibold hover:text-accent"
+          className="relative transition-colors duration-300 ease-in-out after:absolute after:bottom-0 after:right-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:text-white hover:after:left-0 hover:after:w-full"
           target="_blank"
         >
           Longhorn Developers
@@ -63,18 +63,18 @@ const About = () => {
         @{" "}
         <Link
           href={"https://www.planview.com/"}
-          className="transition-all hover:font-semibold hover:text-accent"
+          className="relative transition-colors duration-300 after:absolute after:bottom-0 after:right-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:text-white hover:after:left-0 hover:after:w-full"
           target="_blank"
         >
           Planview
         </Link>
         , and building{" "}
         <Link
-          href={"https://www.instagram.com/adventurefy.app/"}
+          href={"https://medceptor.com/"}
           className="font-semibold text-accent transition-colors hover:text-accent/80"
           target="_blank"
         >
-          adventurefy.app
+          medceptor.com
         </Link>{" "}
         with friends.
       </p>
