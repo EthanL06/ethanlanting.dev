@@ -108,7 +108,7 @@ export const projects = [
     description:
       "A proof-of-concept space tourism agency with a comprehensive booking system to plan your next trip to space. I won 2nd in Texas and 4th nationally for the 2023 Webmasters TSA competition.",
     media: "/images/galaxy-adventures.png",
-    url: "https://galaxy-adventures.vercel.app/",
+    url: "https://galaxyadventures.vercel.app/",
     repo: "https://github.com/EthanL06/galaxy-adventures",
     techStack: [
       "Next.js",
