@@ -13,7 +13,7 @@ export const projects = [
     title: "UT Dining",
     slug: "ut-dining",
     description:
-      "A mobile app that tracks UT Austin real-time dining hall menus, nutrition info, and hours. Has over 100+ daily users with 5-star reviews on the App Store!",
+      "A mobile app that tracks UT Austin real-time dining hall menus, nutrition info, and hours. Has over 300+ daily users with 5-star reviews on the App Store!",
     media: "/images/ut-dining.png",
     url: "https://apps.apple.com/us/app/ut-dining/id6743042002",
     repo: "https://github.com/EthanL06/UT-Dining",
