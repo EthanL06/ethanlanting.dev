@@ -39,26 +39,8 @@ const About = () => {
 
       <p>
         I&apos;m currently a{" "}
-        <span className="font-semibold text-white">Web Developer</span> @{" "}
-        <Link
-          className="relative transition-colors duration-300 after:absolute after:bottom-0 after:right-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:text-white hover:after:left-0 hover:after:w-full"
-          href={"https://mediaengagement.org/"}
-          target="_blank"
-        >
-          UT Austin
-        </Link>
-        , a <span className="font-semibold text-white">Software Developer</span>{" "}
-        @{" "}
-        <Link
-          href={"https://github.com/Longhorn-Developers"}
-          className="relative transition-colors duration-300 ease-in-out after:absolute after:bottom-0 after:right-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:text-white hover:after:left-0 hover:after:w-full"
-          target="_blank"
-        >
-          Longhorn Developers
-        </Link>
-        , an incoming{" "}
         <span className="font-semibold text-white">
-          Software Engineering Intern
+          Software Engineer Intern
         </span>{" "}
         @{" "}
         <Link
@@ -67,6 +49,22 @@ const About = () => {
           target="_blank"
         >
           Planview
+        </Link>
+        , a <span className="font-semibold text-white">Web Developer</span> @{" "}
+        <Link
+          className="relative transition-colors duration-300 after:absolute after:bottom-0 after:right-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:text-white hover:after:left-0 hover:after:w-full"
+          href={"https://mediaengagement.org/"}
+          target="_blank"
+        >
+          UT Austin
+        </Link>
+        , a <span className="font-semibold text-white">Project Lead</span> @{" "}
+        <Link
+          href={"https://github.com/Longhorn-Developers"}
+          className="relative transition-colors duration-300 ease-in-out after:absolute after:bottom-0 after:right-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:text-white hover:after:left-0 hover:after:w-full"
+          target="_blank"
+        >
+          Longhorn Developers
         </Link>
         , and building{" "}
         <Link
