@@ -7,7 +7,7 @@ import { socialLinks } from "@/data/social-links";
 const Navbar = () => {
   return (
     <>
-      <div className="flex h-12 w-full justify-between">
+      <div className="z-10 flex h-12 w-full justify-between">
         <div className="flex items-center justify-start">
           <Link className="text-4xl font-bold text-white" href={"/"}>
             EL®
