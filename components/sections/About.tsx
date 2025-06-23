@@ -94,6 +94,7 @@ const About = () => {
 
         <Link
           href={"/files/resume.pdf"}
+          target="_blank"
           className="flex items-center gap-1 font-semibold text-white transition-colors hover:text-white/80"
         >
           View Resume <ArrowUpRight size={14} />
