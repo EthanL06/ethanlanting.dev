@@ -7,9 +7,9 @@ const ProjectItem = (project: Project) => {
   return (
     <div className="mb-12 mt-4 flex flex-wrap items-start justify-between gap-x-4 gap-y-6">
       <div className="flex w-full max-w-[31.25rem] flex-col gap-4">
-        <h2 className="text-4xl font-bold tracking-tight text-white">
+        <h1 className="text-4xl font-bold tracking-tight text-white">
           {project.title}
-        </h2>
+        </h1>
 
         <div className="flex flex-wrap gap-2">
           {project.techStack.map((tech) => (
@@ -30,6 +30,7 @@ const ProjectItem = (project: Project) => {
             className="group text-sm font-medium text-accent transition-colors duration-300 ease-in-out hover:text-accent/80"
             href={project.url}
             target="_blank"
+            rel="noopener noreferrer"
           >
             Open Project{" "}
             <ArrowUpRight
@@ -44,6 +45,7 @@ const ProjectItem = (project: Project) => {
             className="group text-sm font-medium opacity-100 transition-all duration-300 ease-in-out hover:opacity-80"
             href={project.repo}
             target="_blank"
+            rel="noopener noreferrer"
           >
             View Code
           </Link>

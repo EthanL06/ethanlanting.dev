@@ -57,10 +57,11 @@ const Contact = () => {
             Feel free to send me a message using the form or email me at{" "}
             <Link
               className="font-bold leading-relaxed text-accent transition-colors hover:text-accent/80"
-              href="mailto:ethanclanting@gmail.com"
+              href="mailto:ethanlanting@utexas.edu"
               target="_blank"
+              rel="noopener noreferrer"
             >
-              ethanclanting@gmail.com
+              ethanlanting@utexas.edu
             </Link>
           </p>
         </div>

@@ -41,7 +41,7 @@ const GridItem = ({
               width={480}
               height={270}
               src={media}
-              alt={title}
+              alt={`${title} project screenshot`}
             />
           </Link>
         </Suspense>
@@ -64,19 +64,24 @@ const GridItem = ({
       </div>
 
       <div className="flex items-end justify-between gap-6">
-        <Link
-          className="group flex items-center gap-1"
-          href={url}
-          target="_blank"
-        >
-          <span className="line-clamp-1 break-all text-sm font-bold text-accent transition-colors hover:text-accent/80">
-            {urlText}
-          </span>
-          <ArrowUpRight
-            className="shrink-0 transform transition-transform duration-500 ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-            size={14}
-          />
-        </Link>
+        {url ? (
+          <Link
+            className="group flex items-center gap-1"
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="line-clamp-1 break-all text-sm font-bold text-accent transition-colors hover:text-accent/80">
+              {urlText}
+            </span>
+            <ArrowUpRight
+              className="shrink-0 transform transition-transform duration-500 ease-in-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              size={14}
+            />
+          </Link>
+        ) : (
+          <div />
+        )}
 
         {typeof media === "string" && (
           <Link

@@ -16,7 +16,13 @@ const Navbar = () => {
 
         <div className="flex items-center justify-end gap-8">
           {socialLinks.map((link) => (
-            <Link key={link.href} href={link.href} target="_blank">
+            <Link
+              key={link.href}
+              href={link.href}
+              target="_blank"
+              rel="me noopener noreferrer"
+              aria-label={link.title}
+            >
               <link.icon className="size-6 text-white transition-opacity hover:opacity-75" />
             </Link>
           ))}

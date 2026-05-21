@@ -3,13 +3,11 @@ import {
   SiNextdotjs,
   SiTailwindcss,
   SiNodedotjs,
-  SiWordpress,
   SiFirebase,
   SiFigma,
   SiTypescript,
   SiGithub,
   SiDocker,
-  SiPhp,
   SiExpo,
   SiShadcnui,
   SiFramer,
@@ -66,14 +64,67 @@ const JavaIcon = () => (
   </svg>
 );
 
+const ConductorIcon = ({
+  size = 64,
+  color = "currentColor",
+  className,
+}: {
+  size?: number;
+  color?: string;
+  className?: string;
+}) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 64 64"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+  >
+    <rect width="64" height="64" rx="14" fill={color} />
+    <path
+      d="M20 42V22h10.5c7.5 0 13.5 4.1 13.5 10s-6 10-13.5 10H20Z"
+      fill="#0B0B0F"
+    />
+    <path d="M29 26h2.1c4.8 0 8 2.4 8 6s-3.2 6-8 6H29V26Z" fill={color} />
+  </svg>
+);
+
+const ClaudeCodeIcon = ({
+  size = 64,
+  className,
+}: {
+  size?: number;
+  color?: string;
+  className?: string;
+}) => (
+  <img
+    src="/images/claude-code.png"
+    alt=""
+    width={size}
+    height={size}
+    className={className}
+  />
+);
+
+const CodexIcon = ({
+  size = 64,
+  className,
+}: {
+  size?: number;
+  color?: string;
+  className?: string;
+}) => (
+  <img
+    src="/images/codex-transparent.png"
+    alt=""
+    width={size}
+    height={size}
+    className={className}
+  />
+);
+
 export const techStack = [
-  {
-    title: "React",
-    description: "A JavaScript library for building user interfaces",
-    media: SiReact,
-    iconColor: "#61DAFB",
-    url: "https://reactjs.org/",
-  },
   {
     title: "Next.js",
     description: "React framework with server-side rendering",
@@ -82,18 +133,11 @@ export const techStack = [
     url: "https://nextjs.org/",
   },
   {
-    title: "React Native/Expo",
-    description: "Framework for building native apps with React",
-    media: SiExpo,
-    iconColor: "#fff",
-    url: "https://reactnative.dev/",
-  },
-  {
-    title: "Tailwind CSS",
-    description: "Utility-first CSS framework for rapid UI development",
-    media: SiTailwindcss,
-    iconColor: SiTailwindcssHex,
-    url: "https://tailwindcss.com/",
+    title: "React",
+    description: "A JavaScript library for building user interfaces",
+    media: SiReact,
+    iconColor: "#61DAFB",
+    url: "https://reactjs.org/",
   },
   {
     title: "TypeScript",
@@ -103,11 +147,26 @@ export const techStack = [
     url: "https://typescriptlang.org/",
   },
   {
-    title: "Firebase",
-    description: "Platform for building mobile and web applications",
-    media: SiFirebase,
-    iconColor: "#FFCA28",
-    url: "https://firebase.google.com/",
+    title: "Tailwind CSS",
+    description: "Utility-first CSS framework for rapid UI development",
+    media: SiTailwindcss,
+    iconColor: SiTailwindcssHex,
+    url: "https://tailwindcss.com/",
+  },
+  {
+    title: "React Native/Expo",
+    description: "Framework for building native apps with React",
+    media: SiExpo,
+    iconColor: "#fff",
+    url: "https://reactnative.dev/",
+  },
+  {
+    title: "Node.js",
+    description:
+      "JavaScript runtime for building scalable network applications",
+    media: SiNodedotjs,
+    iconColor: "#339933",
+    url: "https://nodejs.org/",
   },
   {
     title: "Supabase",
@@ -117,12 +176,37 @@ export const techStack = [
     url: "https://supabase.com/",
   },
   {
-    title: "Node.js",
-    description:
-      "JavaScript runtime for building scalable network applications",
-    media: SiNodedotjs,
-    iconColor: "#339933",
-    url: "https://nodejs.org/",
+    title: "shadcn/ui",
+    description: "Accessible and customizable component library",
+    media: SiShadcnui,
+    iconColor: "#fff",
+    url: "https://ui.shadcn.com/",
+  },
+  {
+    title: "Firebase",
+    description: "Platform for building mobile and web applications",
+    media: SiFirebase,
+    iconColor: "#FFCA28",
+    url: "https://firebase.google.com/",
+  },
+  {
+    title: "Claude Code",
+    description: "Agentic coding tool for working across codebases",
+    media: ClaudeCodeIcon,
+    url: "https://www.anthropic.com/claude-code",
+  },
+  {
+    title: "Codex",
+    description: "OpenAI coding agent for software engineering workflows",
+    media: CodexIcon,
+    url: "https://openai.com/codex/",
+  },
+  {
+    title: "Conductor",
+    description: "Mac app for running coding agents in parallel workspaces",
+    media: ConductorIcon,
+    iconColor: "#FFFFFF",
+    url: "https://www.conductor.build/",
   },
   {
     title: "GitHub",
@@ -139,13 +223,6 @@ export const techStack = [
     url: "https://figma.com/",
   },
   {
-    title: "shadcn/ui",
-    description: "Accessible and customizable component library",
-    media: SiShadcnui,
-    iconColor: "#fff",
-    url: "https://ui.shadcn.com/",
-  },
-  {
     title: "Docker",
     description: "Platform for developing, shipping, and running applications",
     media: SiDocker,
@@ -153,13 +230,6 @@ export const techStack = [
     url: "https://docker.com/",
   },
 
-  {
-    title: "WordPress",
-    description: "Popular CMS platform for creating websites",
-    media: SiWordpress,
-    iconColor: "#21759B",
-    url: "https://wordpress.org/",
-  },
   {
     title: "Framer",
     description: "Design and prototyping tool for interactive layouts",
@@ -173,12 +243,5 @@ export const techStack = [
     media: JavaIcon,
     iconColor: "#fff",
     url: "https://java.com/",
-  },
-  {
-    title: "PHP",
-    description: "Server-side scripting language for web development",
-    media: SiPhp,
-    iconColor: "#777BB4",
-    url: "https://php.net/",
   },
 ] as const;
