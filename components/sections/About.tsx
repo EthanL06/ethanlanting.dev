@@ -67,7 +67,7 @@ const About = () => {
         >
           UT Austin
         </Link>
-        , and a former Software Engineer @{" "}
+        , and a former Software Engineer Intern @{" "}
         <Link
           href={"https://www.planview.com/"}
           className="relative font-semibold text-white transition-colors duration-300 ease-in-out after:absolute after:bottom-0 after:right-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:text-white/80 hover:after:left-0 hover:after:w-full"
