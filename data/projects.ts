@@ -10,10 +10,34 @@ export interface Project {
 
 export const projects = [
   {
+    title: "BetterCampus (prev. BetterCanvas)",
+    slug: "bettercampus",
+    description:
+      "Chrome extension that upgrades Canvas with custom themes, smarter to-dos, grade tracking, calendar sync, notes, and AI study tools. Used by 2M+ students around the world!",
+    media: "/images/bettercampus.png",
+    url: "https://chromewebstore.google.com/detail/bettercampus-prev-betterc/cndibmoanboadcifjkjbdpjgfedanolh",
+    techStack: [
+      "React",
+      "TypeScript",
+      "WXT",
+      "Tailwind CSS",
+      "Vite",
+      "Cloudflare Workers",
+      "Hono",
+      "PostgreSQL",
+      "Supabase",
+      "Drizzle ORM",
+      "TanStack Query",
+      "Zustand",
+      "Radix UI",
+      "shadcn/ui",
+    ],
+  },
+  {
     title: "UT Dining",
     slug: "ut-dining",
     description:
-      "A mobile app that tracks UT Austin real-time dining hall menus, nutrition info, and hours. Has over 1,000+ daily users with 5-star reviews on the App Store!",
+      "A mobile app that tracks UT Austin real-time dining hall menus, nutrition info, and hours. Has over 5,000+ downloads with 5-star reviews on the App Store!",
     media: "/images/ut-dining.png",
     url: "https://apps.apple.com/us/app/ut-dining/id6743042002",
     repo: "https://github.com/EthanL06/UT-Dining",

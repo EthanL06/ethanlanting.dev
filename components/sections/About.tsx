@@ -38,43 +38,45 @@ const About = () => {
       </div>
 
       <p>
-        I&apos;m currently a{" "}
-        <span className="font-semibold text-white">
-          Software Engineer Intern
-        </span>{" "}
-        @{" "}
+        I&apos;m currently a Software Engineer Intern @{" "}
         <Link
-          href={"https://www.planview.com/"}
-          className="relative transition-colors duration-300 after:absolute after:bottom-0 after:right-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:text-white hover:after:left-0 hover:after:w-full"
+          href={"https://www.cloudflare.com/"}
+          className="relative font-semibold text-white transition-colors duration-300 after:absolute after:bottom-0 after:right-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:text-white/80 hover:after:left-0 hover:after:w-full"
           target="_blank"
+          rel="noopener noreferrer"
         >
-          Planview
+          Cloudflare
         </Link>
-        , a <span className="font-semibold text-white">Web Developer</span> @{" "}
+        , a Software Engineer @{" "}
         <Link
-          className="relative transition-colors duration-300 after:absolute after:bottom-0 after:right-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:text-white hover:after:left-0 hover:after:w-full"
+          className="relative font-semibold text-white transition-colors duration-300 after:absolute after:bottom-0 after:right-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:text-white/80 hover:after:left-0 hover:after:w-full"
+          href={
+            "https://chromewebstore.google.com/detail/bettercampus-prev-betterc/cndibmoanboadcifjkjbdpjgfedanolh"
+          }
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          BetterCampus
+        </Link>
+        , a Web Developer @{" "}
+        <Link
+          className="relative font-semibold text-white transition-colors duration-300 after:absolute after:bottom-0 after:right-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:text-white/80 hover:after:left-0 hover:after:w-full"
           href={"https://mediaengagement.org/"}
           target="_blank"
+          rel="noopener noreferrer"
         >
           UT Austin
         </Link>
-        , a <span className="font-semibold text-white">Project Lead</span> @{" "}
+        , and a former Software Engineer @{" "}
         <Link
-          href={"https://github.com/Longhorn-Developers"}
-          className="relative transition-colors duration-300 ease-in-out after:absolute after:bottom-0 after:right-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:text-white hover:after:left-0 hover:after:w-full"
+          href={"https://www.planview.com/"}
+          className="relative font-semibold text-white transition-colors duration-300 ease-in-out after:absolute after:bottom-0 after:right-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:text-white/80 hover:after:left-0 hover:after:w-full"
           target="_blank"
+          rel="noopener noreferrer"
         >
-          Longhorn Developers
+          Planview
         </Link>
-        , and building{" "}
-        <Link
-          href={"https://medceptor.com/"}
-          className="font-semibold text-accent transition-colors hover:text-accent/80"
-          target="_blank"
-        >
-          medceptor.com
-        </Link>{" "}
-        with friends.
+        .
       </p>
 
       <p>
@@ -95,6 +97,7 @@ const About = () => {
         <Link
           href={"/files/resume.pdf"}
           target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center gap-1 font-semibold text-white transition-colors hover:text-white/80"
         >
           View Resume <ArrowUpRight size={14} />
