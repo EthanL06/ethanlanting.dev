@@ -60,7 +60,16 @@ const getRect = (element: HTMLElement): ImageRect => {
 const getCurrentImageSource = (element: HTMLElement, fallback: string) =>
   element.querySelector("img")?.currentSrc || fallback;
 
+export const canUseProjectImageTransition = () =>
+  typeof window !== "undefined" &&
+  window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
 export const prepareProjectImageBackTransition = () => {
+  if (!canUseProjectImageTransition()) {
+    pendingTransition = null;
+    return;
+  }
+
   const detailImage = document.querySelector<HTMLElement>(
     "[data-project-image-detail]",
   );
@@ -78,10 +87,10 @@ export const prepareProjectImageBackTransition = () => {
 };
 
 export const isProjectImageBackTransitionPending = () =>
-  pendingTransition?.direction === "back";
+  canUseProjectImageTransition() && pendingTransition?.direction === "back";
 
 export const isProjectImageForwardTransitionPending = () =>
-  pendingTransition?.direction === "forward";
+  canUseProjectImageTransition() && pendingTransition?.direction === "forward";
 
 export const preloadProjectImage = (media: string, title: string) => {
   const { props } = getImageProps({
@@ -110,6 +119,7 @@ const ProjectImage = ({ media, slug, title, url, variant }: Props) => {
   const expectedDirection = isDetail ? "forward" : "back";
   const isPendingDestination =
     !shouldReduceMotion &&
+    canUseProjectImageTransition() &&
     pendingTransition?.slug === slug &&
     pendingTransition.direction === expectedDirection;
 
@@ -168,7 +178,12 @@ const ProjectImage = ({ media, slug, title, url, variant }: Props) => {
     return () => {
       frames.forEach((frame) => window.cancelAnimationFrame(frame));
 
-      if (isDetail && !shouldReduceMotion && transitionNode) {
+      if (
+        isDetail &&
+        !shouldReduceMotion &&
+        transitionNode &&
+        canUseProjectImageTransition()
+      ) {
         const reverseTransition: PendingTransition = {
           direction: "back",
           rect: getRect(transitionNode),
@@ -218,15 +233,22 @@ const ProjectImage = ({ media, slug, title, url, variant }: Props) => {
   const startForwardTransition = (event: MouseEvent<HTMLAnchorElement>) => {
     if (
       event.button !== 0 ||
-      event.detail === 0 ||
       event.metaKey ||
       event.ctrlKey ||
       event.shiftKey ||
-      event.altKey ||
-      shouldReduceMotion
+      event.altKey
     ) {
       return;
     }
+
+    if (!canUseProjectImageTransition()) {
+      event.preventDefault();
+      pendingTransition = null;
+      window.location.assign(event.currentTarget.href);
+      return;
+    }
+
+    if (event.detail === 0 || shouldReduceMotion) return;
 
     const thumbnail = containerRef.current;
 

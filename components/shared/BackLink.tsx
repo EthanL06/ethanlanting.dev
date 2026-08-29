@@ -4,7 +4,10 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { MouseEvent } from "react";
-import { prepareProjectImageBackTransition } from "./ProjectImage";
+import {
+  canUseProjectImageTransition,
+  prepareProjectImageBackTransition,
+} from "./ProjectImage";
 
 const BackLink = () => {
   const router = useRouter();
@@ -21,6 +24,15 @@ const BackLink = () => {
     }
 
     event.preventDefault();
+
+    if (!canUseProjectImageTransition()) {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.assign(event.currentTarget.href);
+      }
+      return;
+    }
 
     if (event.detail !== 0) {
       prepareProjectImageBackTransition();
