@@ -5,8 +5,16 @@ import React, { useEffect, useState } from "react";
 import GridItem from "../shared/GridItem";
 import { techStack } from "@/data/tech-stack";
 import { projects } from "@/data/projects";
+import { useRouter } from "next/navigation";
+import { motion, useReducedMotion } from "motion/react";
+import { isProjectImageBackTransitionPending } from "../shared/ProjectImage";
 
 const Content = () => {
+  const router = useRouter();
+  const shouldReduceMotion = useReducedMotion();
+  const [isReturningFromProject] = useState(
+    isProjectImageBackTransitionPending,
+  );
   const [activeTab, setActiveTab] = useState<"projects" | "tech stack">(
     "projects",
   );
@@ -15,8 +23,35 @@ const Content = () => {
     easterEgg();
   }, []);
 
+  useEffect(() => {
+    projects.forEach(({ slug }) => {
+      const href = `/projects/${slug}`;
+
+      router.prefetch(href);
+
+      if (process.env.NODE_ENV === "development") {
+        void fetch(href).catch(() => undefined);
+      }
+    });
+  }, [router]);
+
   return (
-    <div className="flex flex-col">
+    <motion.div
+      animate={{ filter: "blur(0px)", opacity: 1 }}
+      className="flex flex-col"
+      initial={
+        isReturningFromProject
+          ? {
+              filter: shouldReduceMotion ? "blur(0px)" : "blur(4px)",
+              opacity: 0,
+            }
+          : false
+      }
+      transition={{
+        duration: shouldReduceMotion ? 0.14 : 0.22,
+        ease: [0.23, 1, 0.32, 1],
+      }}
+    >
       <div className="sticky top-0 z-10 flex items-center gap-6 border-b border-white/10 bg-background pb-4 pt-3 sm:relative sm:z-0 sm:pt-0">
         <button
           onClick={() => setActiveTab("projects")}
@@ -48,7 +83,7 @@ const Content = () => {
 
       {activeTab === "projects" && <Projects />}
       {activeTab === "tech stack" && <TechStack />}
-    </div>
+    </motion.div>
   );
 };
 

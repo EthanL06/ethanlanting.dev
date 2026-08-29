@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 import { TailwindIndicator } from "@/components/shared/TailwindIndicator";
+import ProjectMotionProvider from "@/components/shared/ProjectMotionProvider";
 import {
   absoluteUrl,
   siteDescription,
@@ -91,7 +92,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${manrope.className} antialiased`}>
-        {children}
+        <ProjectMotionProvider>{children}</ProjectMotionProvider>
         <TailwindIndicator />
         <Analytics />
       </body>
