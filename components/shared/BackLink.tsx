@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { MouseEvent } from "react";
 import { prepareProjectImageBackTransition } from "./ProjectImage";
-import { prepareProjectDetailsBackTransition } from "./ProjectItem";
 
 const BackLink = () => {
   const router = useRouter();
@@ -24,7 +23,6 @@ const BackLink = () => {
     event.preventDefault();
 
     if (event.detail !== 0) {
-      prepareProjectDetailsBackTransition();
       prepareProjectImageBackTransition();
     }
 

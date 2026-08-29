@@ -1,7 +1,6 @@
 import Footer from "@/components/sections/Footer";
 import NotFound from "@/components/sections/NotFound";
 import BackLink from "@/components/shared/BackLink";
-import Blob from "@/components/shared/Blob";
 import Navbar from "@/components/shared/Navbar";
 import ProjectImage from "@/components/shared/ProjectImage";
 import ProjectItem from "@/components/shared/ProjectItem";
@@ -113,7 +112,6 @@ export default async function Page({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(projectJsonLd) }}
       />
       <Navbar />
-      <Blob />
 
       <main className="container mx-auto flex w-full flex-col">
         <div>

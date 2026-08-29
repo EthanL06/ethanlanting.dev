@@ -7,85 +7,6 @@ import Link from "next/link";
 import React from "react";
 import { isProjectImageForwardTransitionPending } from "./ProjectImage";
 
-const projectCopySelector = "[data-project-copy]";
-const projectDetailsSelector = "[data-project-details]";
-
-export const prepareProjectDetailsBackTransition = () => {
-  const source = document.querySelector<HTMLElement>(projectDetailsSelector);
-
-  if (!source) return;
-
-  const rect = source.getBoundingClientRect();
-  const clone = source.cloneNode(true) as HTMLElement;
-  const shouldReduceMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)",
-  ).matches;
-
-  clone.removeAttribute("data-project-details");
-  clone.setAttribute("aria-hidden", "true");
-  clone.inert = true;
-  Object.assign(clone.style, {
-    boxSizing: "border-box",
-    height: `${rect.height}px`,
-    left: `${rect.left}px`,
-    margin: "0",
-    pointerEvents: "none",
-    position: "fixed",
-    top: `${rect.top}px`,
-    width: `${rect.width}px`,
-    zIndex: "40",
-  });
-  document.body.appendChild(clone);
-
-  const copy = Array.from(
-    clone.querySelectorAll<HTMLElement>(projectCopySelector),
-  ).reverse();
-  const animations = copy.map((element, index) => {
-    element.style.willChange = "opacity, transform";
-
-    return element.animate(
-      [
-        { opacity: 1, transform: "translate3d(0, 0, 0)" },
-        {
-          opacity: 0,
-          transform: shouldReduceMotion
-            ? "translate3d(0, 0, 0)"
-            : "translate3d(0, 4px, 0)",
-        },
-      ],
-      {
-        delay: shouldReduceMotion ? 0 : index * 20,
-        duration: 140,
-        easing: "cubic-bezier(0.23, 1, 0.32, 1)",
-        fill: "forwards",
-      },
-    );
-  });
-  let isRemoved = false;
-  const removeClone = () => {
-    if (isRemoved) return;
-
-    isRemoved = true;
-    animations.forEach((animation) => animation.cancel());
-    clone.remove();
-    window.removeEventListener("pointerdown", removeClone);
-    window.removeEventListener("wheel", removeClone);
-    window.removeEventListener("touchmove", removeClone);
-    window.removeEventListener("keydown", removeClone);
-  };
-
-  window.addEventListener("pointerdown", removeClone, { once: true });
-  window.addEventListener("wheel", removeClone, { once: true, passive: true });
-  window.addEventListener("touchmove", removeClone, {
-    once: true,
-    passive: true,
-  });
-  window.addEventListener("keydown", removeClone, { once: true });
-  void Promise.allSettled(
-    animations.map((animation) => animation.finished),
-  ).then(removeClone);
-};
-
 const ProjectItem = (project: Project) => {
   const shouldReduceMotion = useReducedMotion();
   const shouldAnimateEntry = isProjectImageForwardTransitionPending();
@@ -109,7 +30,6 @@ const ProjectItem = (project: Project) => {
   return (
     <motion.div
       className="mb-12 mt-4 flex flex-wrap items-start justify-between gap-x-4 gap-y-6"
-      data-project-details
       initial={shouldAnimateEntry ? "hidden" : false}
       animate="visible"
       variants={{
@@ -126,17 +46,12 @@ const ProjectItem = (project: Project) => {
       <div className="flex w-full max-w-[31.25rem] flex-col gap-4">
         <motion.h1
           className="text-4xl font-bold tracking-tight text-white"
-          data-project-copy
           variants={copyVariants}
         >
           {project.title}
         </motion.h1>
 
-        <motion.div
-          className="flex flex-wrap gap-2"
-          data-project-copy
-          variants={copyVariants}
-        >
+        <motion.div className="flex flex-wrap gap-2" variants={copyVariants}>
           {project.techStack.map((tech) => (
             <div
               key={tech}
@@ -146,14 +61,11 @@ const ProjectItem = (project: Project) => {
             </div>
           ))}
         </motion.div>
-        <motion.p data-project-copy variants={copyVariants}>
-          {project.description}
-        </motion.p>
+        <motion.p variants={copyVariants}>{project.description}</motion.p>
       </div>
 
       <motion.div
         className="flex items-center justify-end gap-4"
-        data-project-copy
         variants={copyVariants}
       >
         {project.url && (
