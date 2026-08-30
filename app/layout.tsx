@@ -4,7 +4,9 @@ import { Analytics } from "@vercel/analytics/next";
 
 import "./globals.css";
 
+import Aurora from "@/components/shared/Aurora";
 import { TailwindIndicator } from "@/components/shared/TailwindIndicator";
+import ProjectMotionProvider from "@/components/shared/ProjectMotionProvider";
 import {
   absoluteUrl,
   siteDescription,
@@ -91,7 +93,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${manrope.className} antialiased`}>
-        {children}
+        <Aurora
+          colorStops={["#264653", "#3a86ff", "#8ecae6", "#b5ead7", "#cdb4db"]}
+          blend={0.5}
+          amplitude={1}
+          speed={0.5}
+          className="pointer-events-none absolute inset-x-0 top-0 h-48 blur-2xl"
+        />
+        <ProjectMotionProvider>{children}</ProjectMotionProvider>
         <TailwindIndicator />
         <Analytics />
       </body>

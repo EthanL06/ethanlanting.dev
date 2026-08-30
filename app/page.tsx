@@ -2,7 +2,6 @@ import About from "@/components/sections/About";
 import Contact from "@/components/sections/Contact";
 import Content from "@/components/sections/Content";
 import Footer from "@/components/sections/Footer";
-import Aurora from "@/components/shared/Aurora";
 import Navbar from "@/components/shared/Navbar";
 import { siteDescription, siteName, siteUrl } from "@/lib/seo";
 
@@ -58,20 +57,6 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
       />
-      <Aurora
-        colorStops={[
-          "#264653", // deep desaturated teal
-          "#3a86ff", // cool electric blue
-          "#8ecae6", // frosty light blue
-          "#b5ead7", // soft mint green
-          "#cdb4db", // pale lavender
-        ]}
-        blend={0.5}
-        amplitude={1.0}
-        speed={0.5}
-        className="absolute inset-0 h-48 blur-2xl"
-      />
-
       <Navbar />
 
       <main className="container mx-auto flex w-full flex-col gap-y-12">

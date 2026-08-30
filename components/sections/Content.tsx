@@ -5,8 +5,10 @@ import React, { useEffect, useState } from "react";
 import GridItem from "../shared/GridItem";
 import { techStack } from "@/data/tech-stack";
 import { projects } from "@/data/projects";
+import { useRouter } from "next/navigation";
 
 const Content = () => {
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState<"projects" | "tech stack">(
     "projects",
   );
@@ -14,6 +16,18 @@ const Content = () => {
   useEffect(() => {
     easterEgg();
   }, []);
+
+  useEffect(() => {
+    projects.forEach(({ slug }) => {
+      const href = `/projects/${slug}`;
+
+      router.prefetch(href);
+
+      if (process.env.NODE_ENV === "development") {
+        void fetch(href).catch(() => undefined);
+      }
+    });
+  }, [router]);
 
   return (
     <div className="flex flex-col">

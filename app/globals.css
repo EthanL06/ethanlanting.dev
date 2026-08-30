@@ -2,13 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.project-image {
+  transition:
+    transform 200ms ease,
+    opacity 200ms ease;
+}
+
 @layer base {
   html,
   body {
     @apply bg-background text-[#9C9C9C];
-    scroll-behavior: smooth;
   }
   * {
     @apply leading-relaxed !tracking-tight;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .project-image-interaction:hover .project-image {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: reduce) {
+  .project-image-interaction:hover .project-image {
+    opacity: 0.85;
   }
 }

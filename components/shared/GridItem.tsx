@@ -1,8 +1,8 @@
 import Link from "next/link";
-import React, { Suspense } from "react";
+import React from "react";
 import { ArrowUpRight } from "lucide-react";
 import { IconType } from "@icons-pack/react-simple-icons";
-import Image from "next/image";
+import ProjectImage, { preloadProjectImage } from "./ProjectImage";
 
 type Props = {
   title: string;
@@ -25,26 +25,25 @@ const GridItem = ({
     .replace(/(^\w+:|^)\/\//, "")
     .replace(/\/$/, "")
     .replace(/^www\./, "");
+  const preloadDetailImage =
+    typeof media === "string"
+      ? () => preloadProjectImage(media, title)
+      : undefined;
 
   return (
-    <div className="group/item flex flex-col gap-3">
+    <div
+      className="group/item flex flex-col gap-3"
+      onFocusCapture={preloadDetailImage}
+      onMouseEnter={preloadDetailImage}
+    >
       {typeof media === "string" ? (
-        <Suspense
-          fallback={<div className="h-16 w-16 animate-pulse bg-white/10" />}
-        >
-          <Link
-            className="overflow-clip rounded-lg border border-white/10 hover:cursor-pointer"
-            href={`/projects/${slug}`}
-          >
-            <Image
-              className="aspect-video w-full overflow-clip object-cover object-center transition-all duration-500 ease-in-out group-hover/item:scale-110 group-hover/item:opacity-80"
-              width={480}
-              height={270}
-              src={media}
-              alt={`${title} project screenshot`}
-            />
-          </Link>
-        </Suspense>
+        <ProjectImage
+          media={media}
+          slug={slug!}
+          title={title}
+          url={url}
+          variant="thumbnail"
+        />
       ) : (
         <div className="flex items-center">
           {React.createElement(media as IconType | React.ElementType, {
