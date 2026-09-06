@@ -10,7 +10,7 @@ const Navbar = () => {
       <div className="z-10 flex h-12 w-full justify-between">
         <div className="flex items-center justify-start">
           <Link className="text-4xl font-bold text-white" href={"/"}>
-            EL®
+            EL
           </Link>
         </div>
 
