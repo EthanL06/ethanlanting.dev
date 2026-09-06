@@ -1,6 +1,6 @@
 # Website design system
 
-This document describes the design implemented in this workspace, including the current Spotify indicator. It is based on the source code and local Chrome inspection of the homepage, both content tabs, a project detail page, the contact form, and the 404 page on September 5, 2026. Responsive layout measurements cover 390, 640, 768, 1024, and 1440px viewports. Interaction timings and conditional states below come from the source; they are not a claim of exhaustive interaction testing.
+This document describes the current portfolio implementation, including the Spotify listening paragraph. It incorporates the September 5, 2026 source review of the merged Spotify, profile, and layout changes. Responsive measurements come from the earlier local Chrome inspection of the homepage, both content tabs, a project detail page, the contact form, and the 404 page at 390, 640, 768, 1024, and 1440px viewports; that browser inspection was not repeated for this documentation update. Interaction timings and conditional states below come from the source, not exhaustive interaction testing.
 
 ## Visual direction
 
@@ -26,6 +26,7 @@ The site uses Next.js App Router, React, TypeScript, and Tailwind CSS 3. Styling
 | Homepage composition                                      | [app/page.tsx](app/page.tsx)                                                                                                                                                     |
 | Navigation and social destinations                        | [Navbar.tsx](components/shared/Navbar.tsx), [nav-links.ts](data/nav-links.ts), [social-links.ts](data/social-links.ts)                                                           |
 | Introduction and listening status                         | [About.tsx](components/sections/About.tsx), [NowPlaying.tsx](components/shared/NowPlaying.tsx)                                                                                   |
+| Spotify lookup and setup                                   | [spotify.ts](lib/spotify.ts), [README.md](README.md#spotify-indicator) |
 | Content tabs and shared grid entries                      | [Content.tsx](components/sections/Content.tsx), [GridItem.tsx](components/shared/GridItem.tsx)                                                                                   |
 | Project and technology content                            | [projects.ts](data/projects.ts), [tech-stack.tsx](data/tech-stack.tsx)                                                                                                           |
 | Project detail composition                                | [project page](app/projects/%5Bslug%5D/page.tsx), [ProjectItem.tsx](components/shared/ProjectItem.tsx)                                                                           |
@@ -45,8 +46,7 @@ Only `background` and `accent` are named custom Tailwind colors. The other value
 | Quiet outline      | `border-white/10`                     | Navigation, screenshots, fields, badges, section dividers       |
 | Muted badge text   | `text-white/50`                       | Project technology labels                                       |
 | Navigation surface | `bg-background/75`                    | Fixed pill with `backdrop-blur-lg`                              |
-| Listening surface  | `bg-white/[0.03]` → `bg-white/[0.06]` | Spotify card at rest and on hover                               |
-| Spotify identity   | `#1DB954`                             | Small provider label and icon                                   |
+| Spotify identity   | `#1DB954`                             | Inline Spotify icon in the listening link                       |
 | Required marker    | `text-red-700`                        | Asterisks beside form labels                                    |
 | Filled action      | `bg-white text-background`            | Send button                                                     |
 
@@ -69,10 +69,11 @@ Sizes below assume the default 16px root font size.
 | Card descriptions                      | 14px (`text-sm`)                   | Medium 500, relaxed line height                                                      |
 | Navigation and tabs                    | 14px                               | Navigation 500; tabs 600, active tab 800                                             |
 | External URL in a grid entry           | 14px                               | Bold 700, accent                                                                     |
-| Form text, labels, Send, Learn More    | 12px (`text-xs`)                   | Labels and actions use semibold 600                                                  |
+| Form text, labels, Send               | 12px (`text-xs`)                   | Labels and actions use semibold 600                                                  |
 | Project technology badges              | 10px, 12px from `sm`               | Semibold 600, uppercase                                                              |
-| Spotify provider label / old-site link | 10px                               | Small supporting text                                                                |
-| Brand mark `EL®`                      | 36px                               | Bold 700, white text                                                                 |
+| Spotify listening paragraph           | 16px                               | Inherits introduction text; song and artist use white semibold 600 |
+| Old-site link                         | 10px                               | Small supporting text                                                                |
+| Brand mark `EL`                       | 36px                               | Bold 700, white text                                                                 |
 | 404 heading                            | 36px → 48px at `sm` → 60px at `md` | Extra bold 800, white                                                                |
 
 Descriptions use `text-pretty`; the contact introduction uses centered `text-balance`. Preserve readable wrapping and compact hierarchy when extending the site.
@@ -104,7 +105,7 @@ Project detail pages flow from Go Back to a wrapping title / metadata / action r
 | Value            | Existing use                                                               |
 | ---------------- | -------------------------------------------------------------------------- |
 | 4–8px            | Inline icon gaps, label spacing, badge gaps                                |
-| 12px             | Grid-entry internal gap, Spotify card padding                              |
+| 12px             | Grid-entry internal gap                                                   |
 | 16px             | Introduction action gap, project-detail copy gap                           |
 | 24px             | Biography groups, form groups, grid top padding, footer vertical padding   |
 | 32px             | Page top padding, navigation link / social icon gaps                       |
@@ -112,7 +113,7 @@ Project detail pages flow from Go Back to a wrapping title / metadata / action r
 | 48px             | Main section gaps, contact vertical padding, detail copy bottom margin     |
 | 64px             | Header-to-main gap, desktop horizontal gutters, larger technology row gaps |
 | 4px radius       | Technology badges (`rounded`)                                              |
-| 8px radius       | Project thumbnails and Spotify card                                        |
+| 8px radius       | Project thumbnails                                                         |
 | 16px radius      | Detail screenshot and message textarea                                     |
 | Full pill radius | Navigation, single-line inputs, Send button                                |
 
@@ -122,17 +123,19 @@ Borders are 1px. The large project screenshot and its transition overlay use `sh
 
 ### Header and introduction
 
-The header row is 48px high. `EL®` links home; three 24px social icons sit on the right. The desktop navigation uses 20px horizontal and 12px vertical padding, a subtle outline, and a blurred translucent background.
+The header row is 48px high. `EL` links home; three 24px social icons sit on the right. The desktop navigation uses 20px horizontal and 12px vertical padding, a subtle outline, and a blurred translucent background.
 
-The introduction starts with a 30px waving-hand emoji button, followed by first-person copy. White semibold spans highlight employers and achievements. Employer links reveal a 1px underline over 300ms. Contact Me is the blue primary text action; View Resume is white. Both pair text with a 14px northeast arrow. The resume opens [resume.pdf](public/files/resume.pdf).
+The introduction starts with a 30px waving-hand emoji button and the greeting “Hi, I'm Ethan!” The biography lists Lead Software Engineer at BetterCampus and Web Developer at UT Austin as current roles, with Cloudflare and Planview as former internships. White semibold spans highlight employers and achievements. Employer links reveal a 1px underline over 300ms.
+
+The listening or achievements paragraph follows the biography, before the actions. Contact Me is the blue primary text action; View Resume is white. Both pair text with a 14px northeast arrow and use `shrink-0`; their row wraps with a 16px gap when space is limited. The resume opens [resume.pdf](public/files/resume.pdf) in a new tab.
 
 ### Projects and technologies
 
-Projects is the initial selection. Active tabs are white and extra bold; inactive tabs are muted gray. A small blue dot with a ping animation accompanies Tech Stack regardless of selection. Switching tabs replaces the grid directly, with no tab-panel transition.
+Projects is the initial selection. Active tabs are white and extra bold; inactive tabs are muted gray. Both tab buttons use `shrink-0` to preserve their widths. A small blue dot with a ping animation accompanies Tech Stack regardless of selection. Switching tabs replaces the grid directly, with no tab-panel transition.
 
-Both lists reuse `GridItem`: media, heading, description, then actions. Flexible description height aligns bottom actions within a grid row. Project thumbnails, titles, and Learn More link to the detail route. The external URL is shown without its protocol, `www.`, or trailing slash, and truncated to one line. Its arrow shifts up and right on hover.
+Both lists reuse `GridItem`: media, heading, description, then an optional external URL. Flexible description height aligns bottom actions within a grid row. Project thumbnails and titles link to the detail route. The external URL is shown without its protocol, `www.`, or trailing slash, and truncated to one line. Its arrow shifts up and right on hover.
 
-Technology entries replace screenshots with brand icons, generally 64px; the custom Java SVG is 64 × 72px. They omit Learn More. Their title links currently have a routing defect described below.
+Technology entries replace screenshots with brand icons, generally 64px; the custom Java SVG is 64 × 72px. Their title links currently have a routing defect described below.
 
 ### Project screenshots and detail metadata
 
@@ -142,15 +145,16 @@ Preserve each project’s own screenshot or device mockup and its colors. The po
 
 Project metadata is rendered as wrapping, outlined uppercase badges with 8px horizontal and 4px vertical padding. Open Project is an accent text link; View Code is a quieter secondary link and appears only when a repository URL exists.
 
-### Spotify indicator
+### Spotify listening paragraph
 
-The indicator sits below the introduction actions and has three source-defined states:
+`NowPlaying` renders a paragraph between the biography and the introduction actions, with two visible states:
 
-- Playing: a compact outlined link containing optional 40px square album art, a green Spotify label, white song title, and muted artist. Long titles and artist names truncate. The card has an explicit accent keyboard-focus outline.
-- Inactive playback: a muted 12px line with a 16px Spotify icon and “Not listening right now.”
-- Initial load or API failure: no visible indicator or reserved placeholder.
+- Playing: “I'm currently listening to” followed by a Spotify link containing a green 14px icon and the song title and artist, separated by an em dash. The link uses white semibold text within the ordinary introduction paragraph; text wraps naturally without a truncation rule.
+- Fallback: the complete achievements paragraph listing a state finalist placement, a state win, two national finalist placements, and two hackathon wins. Paused or absent playback, unsupported items such as episodes or local tracks, missing credentials, and API failures use this state. The lookup also rejects playback when the response explicitly marks the device as a private session.
 
-Album art is displayed directly without transformations. The active card links to Spotify and has a descriptive accessible label. Live content can change the introduction’s height; it is not a fixed design specimen.
+The song link opens Spotify in a new tab with `noopener noreferrer` and an accessible label naming the song, artist, and destination. Its decorative icon is hidden from assistive technology. A 1px underline reveals on hover over 300ms; keyboard focus adds a 2px accent outline with a 2px offset. Reduced-motion preferences disable the link and underline transitions.
+
+The dynamic homepage awaits the server lookup before rendering and caches its result with a 15-second revalidation interval. The browser receives the selected paragraph in the server HTML. There is no album artwork, card surface, loading placeholder, client polling, or hydration-time copy swap. The paragraph stays unchanged during a visit; a later server render can select different content and produce a different paragraph height. Credentials and setup instructions are documented in [README.md](README.md#spotify-indicator).
 
 ### Contact form
 
