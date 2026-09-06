@@ -32,22 +32,12 @@ const About = () => {
           <p className="inline-block animate-wave select-none text-3xl">👋</p>
         </ConfettiButton>
         <h1>
-          Hi, I&apos;m <span className="font-semibold text-white">Ethan</span>—a
-          developer, designer, and creator.
+          Hi, I&apos;m <span className="font-semibold text-white">Ethan</span>!
         </h1>
       </div>
 
       <p>
-        I&apos;m currently a Software Engineer Intern @{" "}
-        <Link
-          href={"https://www.cloudflare.com/"}
-          className="relative font-semibold text-white transition-colors duration-300 after:absolute after:bottom-0 after:right-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:text-white/80 hover:after:left-0 hover:after:w-full"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Cloudflare
-        </Link>
-        , a Software Engineer @{" "}
+        I&apos;m currently a Lead Software Engineer @{" "}
         <Link
           className="relative font-semibold text-white transition-colors duration-300 after:absolute after:bottom-0 after:right-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:text-white/80 hover:after:left-0 hover:after:w-full"
           href={
@@ -68,6 +58,15 @@ const About = () => {
           UT Austin
         </Link>
         , and a former Software Engineer Intern @{" "}
+        <Link
+          href={"https://www.cloudflare.com/"}
+          className="relative font-semibold text-white transition-colors duration-300 after:absolute after:bottom-0 after:right-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:text-white/80 hover:after:left-0 hover:after:w-full"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Cloudflare
+        </Link>{" "}
+        and{" "}
         <Link
           href={"https://www.planview.com/"}
           className="relative font-semibold text-white transition-colors duration-300 ease-in-out after:absolute after:bottom-0 after:right-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:text-white/80 hover:after:left-0 hover:after:w-full"
