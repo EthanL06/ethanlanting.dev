@@ -35,7 +35,7 @@ const Content = () => {
         <button
           onClick={() => setActiveTab("projects")}
           className={cn(
-            "text-sm font-semibold",
+            "shrink-0 text-sm font-semibold",
             activeTab === "projects"
               ? "!font-extrabold text-white"
               : "transition-colors hover:text-white/80",
@@ -46,7 +46,7 @@ const Content = () => {
         <button
           onClick={() => setActiveTab("tech stack")}
           className={cn(
-            "relative text-sm font-semibold",
+            "relative shrink-0 text-sm font-semibold",
             activeTab === "tech stack"
               ? "!font-extrabold text-white"
               : "transition-colors hover:text-white/80",
