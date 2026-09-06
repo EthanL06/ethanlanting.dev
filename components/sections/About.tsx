@@ -85,10 +85,10 @@ const About = () => {
         <span className="font-semibold text-white">hackathon winner</span>. ✌
       </p>
 
-      <div className="flex items-center gap-4">
+      <div className="flex flex-wrap items-center gap-4">
         <Link
           href={"/#contact"}
-          className="flex items-center gap-1 font-semibold text-accent transition-colors hover:text-accent/80"
+          className="flex shrink-0 items-center gap-1 font-semibold text-accent transition-colors hover:text-accent/80"
         >
           Contact Me <ArrowUpRight size={14} />
         </Link>
@@ -97,7 +97,7 @@ const About = () => {
           href={"/files/resume.pdf"}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1 font-semibold text-white transition-colors hover:text-white/80"
+          className="flex shrink-0 items-center gap-1 font-semibold text-white transition-colors hover:text-white/80"
         >
           View Resume <ArrowUpRight size={14} />
         </Link>

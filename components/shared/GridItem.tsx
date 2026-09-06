@@ -81,15 +81,6 @@ const GridItem = ({
         ) : (
           <div />
         )}
-
-        {typeof media === "string" && (
-          <Link
-            className="w-fit whitespace-nowrap text-xs font-semibold transition-all duration-300 ease-in-out hover:text-white/80"
-            href={`/projects/${slug}`}
-          >
-            Learn More
-          </Link>
-        )}
       </div>
     </div>
   );
