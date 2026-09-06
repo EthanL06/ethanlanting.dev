@@ -26,7 +26,7 @@ The site uses Next.js App Router, React, TypeScript, and Tailwind CSS 3. Styling
 | Homepage composition                                      | [app/page.tsx](app/page.tsx)                                                                                                                                                     |
 | Navigation and social destinations                        | [Navbar.tsx](components/shared/Navbar.tsx), [nav-links.ts](data/nav-links.ts), [social-links.ts](data/social-links.ts)                                                           |
 | Introduction and listening status                         | [About.tsx](components/sections/About.tsx), [NowPlaying.tsx](components/shared/NowPlaying.tsx)                                                                                   |
-| Spotify lookup and setup                                   | [spotify.ts](lib/spotify.ts), [README.md](README.md#spotify-indicator) |
+| Spotify lookup                                            | [spotify.ts](lib/spotify.ts) |
 | Content tabs and shared grid entries                      | [Content.tsx](components/sections/Content.tsx), [GridItem.tsx](components/shared/GridItem.tsx)                                                                                   |
 | Project and technology content                            | [projects.ts](data/projects.ts), [tech-stack.tsx](data/tech-stack.tsx)                                                                                                           |
 | Project detail composition                                | [project page](app/projects/%5Bslug%5D/page.tsx), [ProjectItem.tsx](components/shared/ProjectItem.tsx)                                                                           |
@@ -154,7 +154,9 @@ Project metadata is rendered as wrapping, outlined uppercase badges with 8px hor
 
 The song link opens Spotify in a new tab with `noopener noreferrer` and an accessible label naming the song, artist, and destination. Its decorative icon is hidden from assistive technology. A 1px underline reveals on hover over 300ms; keyboard focus adds a 2px accent outline with a 2px offset. Reduced-motion preferences disable the link and underline transitions.
 
-The dynamic homepage awaits the server lookup before rendering and caches its result with a 15-second revalidation interval. The browser receives the selected paragraph in the server HTML. There is no album artwork, card surface, loading placeholder, client polling, or hydration-time copy swap. The paragraph stays unchanged during a visit; a later server render can select different content and produce a different paragraph height. Credentials and setup instructions are documented in [README.md](README.md#spotify-indicator).
+The dynamic homepage awaits the server lookup before rendering and caches its result with a 15-second revalidation interval. The browser receives the selected paragraph in the server HTML. There is no album artwork, card surface, loading placeholder, client polling, or hydration-time copy swap. The paragraph stays unchanged during a visit; a later server render can select different content and produce a different paragraph height.
+
+The lookup uses `@spotify/web-api-ts-sdk` with server-only `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`, and `SPOTIFY_REFRESH_TOKEN` environment variables, configured in `.env.local` for development and Vercel for deployment. The refresh token needs the `user-read-currently-playing` scope. None of these variables should use a `NEXT_PUBLIC_` prefix. API and rendering checks run with `node --test tests/spotify.test.mjs`.
 
 ### Contact form
 
