@@ -3,7 +3,10 @@ import Link from "next/link";
 import React from "react";
 import { ConfettiButton } from "../shared/ConfettiComponent";
 
-const About = () => {
+import NowPlaying from "../shared/NowPlaying";
+import type { ListeningTrack } from "@/lib/spotify";
+
+const About = ({ track }: { track: ListeningTrack | null }) => {
   return (
     <section
       id="about"
@@ -79,12 +82,7 @@ const About = () => {
         .
       </p>
 
-      <p>
-        I&apos;ve been recognized as a 1x state finalist, 1x{" "}
-        <span className="font-semibold text-white">state winner</span>, 2x
-        national finalist, and 2x{" "}
-        <span className="font-semibold text-white">hackathon winner</span>. ✌
-      </p>
+      <NowPlaying track={track} />
 
       <div className="flex items-center gap-4">
         <Link

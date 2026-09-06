@@ -5,7 +5,18 @@ import Footer from "@/components/sections/Footer";
 import Navbar from "@/components/shared/Navbar";
 import { siteDescription, siteName, siteUrl } from "@/lib/seo";
 
-export default function Home() {
+import { unstable_cache } from "next/cache";
+import { getNowPlaying } from "@/lib/spotify";
+
+export const dynamic = "force-dynamic";
+const getListeningTrack = unstable_cache(
+  getNowPlaying,
+  ["spotify-now-playing"],
+  { revalidate: 15 },
+);
+
+export default async function Home() {
+  const track = await getListeningTrack();
   const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -60,7 +71,7 @@ export default function Home() {
       <Navbar />
 
       <main className="container mx-auto flex w-full flex-col gap-y-12">
-        <About />
+        <About track={track} />
         <Content />
         <div>
           <Contact />
