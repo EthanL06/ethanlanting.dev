@@ -61,7 +61,7 @@ export const projects = [
     title: "cook",
     slug: "cook",
     description:
-      "Agent skills that turn a GitHub issue into a reviewed pull request with live spec mockups, parallel builds, automated verification, and self-improving tests. Helps me ship 100+ PRs a week!",
+      "An open-source toolkit for shipping with AI agents: specs with live mockups, builds in parallel worktrees, end-to-end verification, and a retro that makes every build smarter. Helps me ship 100+ PRs a week!",
     media: "/images/cook.png",
     url: "https://github.com/EthanL06/cook",
     techStack: [
