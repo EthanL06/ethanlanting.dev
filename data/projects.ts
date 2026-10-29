@@ -58,6 +58,25 @@ export const projects = [
     ],
   },
   {
+    title: "cook",
+    slug: "cook",
+    description:
+      "An open-source toolkit for shipping with AI agents: specs with live mockups, builds in parallel worktrees, end-to-end verification, and a retro that makes every build smarter. Helps me ship 100+ PRs a week!",
+    media: "/images/cook.png",
+    url: "https://github.com/EthanL06/cook",
+    techStack: [
+      "Claude Code",
+      "Codex",
+      "Bash",
+      "Python",
+      "Paseo",
+      "Lavish",
+      "agent-browser",
+      "GitHub Actions",
+      "Tailscale",
+    ],
+  },
+  {
     title: "pinnacles.",
     slug: "pinnacles",
     description:
