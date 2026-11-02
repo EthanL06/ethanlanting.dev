@@ -41,3 +41,8 @@ videos/*
 !videos/*.js
 !videos/*.ts
 public/_next-video
+
+# local agent output
+.conductor/
+.lavish/
+.context/
