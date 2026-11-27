@@ -39,7 +39,7 @@ export const projects = [
     description:
       "A mobile app that tracks UT Austin real-time dining hall menus, nutrition info, and hours. Has over 5,000+ downloads with 5-star reviews on the App Store!",
     media: "/images/ut-dining.png",
-    url: "https://apps.apple.com/us/app/ut-dining/id6743042002",
+    url: "https://utdining.app/",
     repo: "https://github.com/EthanL06/UT-Dining",
     techStack: [
       "React Native",
